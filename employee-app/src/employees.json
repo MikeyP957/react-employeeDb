@@ -1,0 +1,145 @@
+[
+    {
+        "id": 1,
+        "name":{
+            "first": "Marshmellow",
+            "last": "Lichebo"
+            },
+        "email":"mlichebo1@example.com",
+        "position":{
+            "department":"management",
+            "role": "department manager"
+            },
+        "image":""    
+    },
+    {
+        "id": 2,
+        "name":{
+            "first": "Seign",
+            "last": "Ngo"
+            },
+        "email":"sngo1@example.com",
+        "position":{
+            "department":"management",
+            "role": "department manager"
+            },
+        "image":""    
+    },
+    {
+        "id": 3,
+        "name":{
+            "first": "Brendy",
+            "last": "Ixcoy"
+            },
+        "email":"bixcoy1@email.com",
+        "position":{
+            "department":"engineering",
+            "role": "backend developer"
+            },
+        "image":""    
+    },
+    {
+        "id": 4,
+        "name":{
+            "first": "Eder",
+            "last": "Martinez"
+            },
+        "email":"Emartin@example.com",
+        "position":{
+            "department":"engineer",
+            "role": "frontend developer"
+            },
+        "image":""    
+    },
+    {
+        "id": 5,
+        "name":{
+            "first": "Tuan",
+            "last": "Ngyuen"
+            },
+        "email":"tnguyen1@example.com",
+        "position":{
+            "department":"human resources",
+            "role": "payroll"
+            },
+        "image":""    
+    },
+    {
+        "id": 6,
+        "name":{
+            "first": "Yordanos",
+            "last": "Berhe"
+            },
+        "email":"yberhe@example.com",
+        "position":{
+            "department":"engineer",
+            "role": "database specialist"
+            },
+        "image":""    
+    },
+    {
+        "id": 7,
+        "name":{
+            "first": "John",
+            "last": "Jones"
+            },
+        "email":"jjones@example.com",
+        "position":{
+            "department":"office",
+            "role": "office manager"
+            },
+        "image":""    
+    },
+    {
+        "id": 8,
+        "name":{
+            "first": "Vernelle",
+            "last": "Lichebo"
+            },
+        "email":"Vlichebo1@example.com",
+        "position":{
+            "department":"management",
+            "role": "engineering manager"
+            },
+        "image":""    
+    },
+    {
+        "id": 9,
+        "name":{
+            "first": "Hank",
+            "last": "Williams"
+            },
+        "email":"hwilliams@example.com",
+        "position":{
+            "department":"office",
+            "role": "reception"
+            },
+        "image":""    
+    },
+    {
+        "id": 10,
+        "name":{
+            "first": "WenJie",
+            "last": "Huang"
+            },
+        "email":"whuang@example.com",
+        "position":{
+            "department":"engineer",
+            "role": "frontend developer"
+            },
+        "image":""    
+    },
+    {
+        "id": 11,
+        "name":{
+            "first": "Xioa Ying",
+            "last": "Chen"
+            },
+        "email":"mlichebo1@example.com",
+        "position":{
+            "department":"engineer",
+            "role": "backend developer"
+            },
+        "image":""    
+    }
+]
