@@ -1,35 +1,46 @@
-import React from 'react';
+import React, {Component} from 'react';
 import API from '../../utils/API';
+import Card from '../Card'
+import Col from '../Col'
+import Container from '../Container'
+import Row from '../Row'
 
-export default class EmployeeCard extends React.Component {
+export default class EmployeeCard extends Component {
 
     state = {
         loading: true,
         person: null,
+        
     }
-
+   
    async componentDidMount() {
     const { data } = await API.getRandomEmployees();
-
-    this.setState({person: data.results[0], loading: false})
+        //map here  
+        this.setState({person: data.results, loading: false})
     //logs the first person
-    console.log(data.results[0]);
+    console.log(data.results);
    }
 
    render() {
-       return (
-           <div>
-               {
-               this.state.loading || !this.state.person ? 
-               <div>loading... </div> : 
-               <div>
-                   <div>{this.state.person.name.first} </div>
-                   <div>{this.state.person.name.last} </div>
-                   <div>{this.state.person.dob.age} </div>
-               </div>
-                }
-           </div>
-       )
-   }
+       if(this.state.loading || !this.state.person) {
+           return(
+            <div>loading... </div> 
+           )
+       }
+       else {
+        return (
+            this.state.person.map((employees, i) => {
+                <Card 
+                image= {employees[i].picture.large} 
+                text1= {employees[i].name.first} 
+                text2= {employees[i].name.last} 
+                text3= {employees[i].dob.age} 
+                />
+            })
+        )
+        }
+       }
 
 }
+
+
