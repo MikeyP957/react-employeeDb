@@ -1,6 +1,7 @@
 import React from 'react';
+import API from '../../utils/API';
 
-export default class FetchEmployee extends React.Component {
+export default class EmployeeCard extends React.Component {
 
     state = {
         loading: true,
@@ -8,16 +9,11 @@ export default class FetchEmployee extends React.Component {
     }
 
    async componentDidMount() {
-    const url = 'https://randomuser.me/api/';
-    const response = await fetch(url);
-
-    const data = await response.json()
+    const { data } = await API.getRandomEmployees();
 
     this.setState({person: data.results[0], loading: false})
-
     //logs the first person
     console.log(data.results[0]);
-
    }
 
    render() {
