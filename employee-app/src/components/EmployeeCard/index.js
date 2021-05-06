@@ -4,13 +4,13 @@ import Card from '../Card'
 import Col from '../Col'
 import Container from '../Container'
 import Row from '../Row'
+import Wrapper from '../Wrapper'
 
 export default class EmployeeCard extends Component {
 
     state = {
         loading: true,
-        person: null,
-        
+        person:null
     }
    
    async componentDidMount() {
@@ -29,14 +29,18 @@ export default class EmployeeCard extends Component {
        }
        else {
         return (
-            this.state.person.map((employees, i) => {
-                <Card 
-                image= {employees[i].picture.large} 
-                text1= {employees[i].name.first} 
-                text2= {employees[i].name.last} 
-                text3= {employees[i].dob.age} 
-                />
-            })
+            <Wrapper>
+                {this.state.person.map((employees) => (
+                    <Card
+                    key = {employees.login.uuid}
+                    image= {employees.picture.large} 
+                    text1= {employees.name.first} 
+                    text2= {employees.name.last} 
+                    text3= {employees.dob.age} 
+                    />
+                ))}
+            </Wrapper>
+            
         )
         }
        }
