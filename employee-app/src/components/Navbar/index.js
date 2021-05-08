@@ -15,6 +15,15 @@ export default function Navbar() {
               Search
             </Link>
           </li>
+          <li className="nav-item">
+            <Link
+              to="/filter"
+              className={window.location.pathname === "/filter" ? "nav-link active" : "nav-link"}
+            >
+              Filter
+            </Link>
+          </li>
+
         </ul>
       </div>
     </nav>
