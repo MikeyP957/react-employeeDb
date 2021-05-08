@@ -17,7 +17,7 @@ export default class EmployeeCard extends Component {
     const { data } = await API.getRandomEmployees();
         //map here  
         this.setState({person: data.results, loading: false})
-    //logs the first person
+    
     console.log(data.results);
    }
 
@@ -30,13 +30,15 @@ export default class EmployeeCard extends Component {
        else {
         return (
             <Wrapper>
-                {this.state.person.map((employees) => (
+                {this.state.person.filter((employee) => employee.location.state === "Ohio")
+                .map((employees) => (
                     <Card
                     key = {employees.login.uuid}
                     image= {employees.picture.large} 
                     text1= {employees.name.first} 
                     text2= {employees.name.last} 
                     text3= {employees.dob.age} 
+                    text4= {employees.location.state} 
                     />
                 ))}
             </Wrapper>
