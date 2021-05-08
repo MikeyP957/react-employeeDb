@@ -3,14 +3,18 @@ import API from '../utils/API'
 import Wrapper from '../components/Wrapper'
 import Card from '../components/Card'
 import FilterForm from '../components/FilterForm'
-import FilterResults from '../components/FilterResults'
+import Col from '../components/Col'
+import Row from '../components/Row'
+import Container from '../components/Container'
+
+
 
 class Filter extends Component {
 
     state = {
         loading: true,
         person: null,
-        location: 'Maine'
+        location: ''
     }
    
    async componentDidMount() {
@@ -35,23 +39,32 @@ render() {
     }
     else {
     return (
-            <Wrapper>
-                <FilterForm
-                    handleFormSubmit={this.handleFormSubmit}
-                    handleInputChange={this.handleInputChange}
-                />
-                {this.state.person.filter((employee) => employee.location.state === this.state.location)
-                .map((employees) => (
-                    <Card
-                    key = {employees.login.uuid}
-                    image= {employees.picture.large} 
-                    text1= {employees.name.first} 
-                    text2= {employees.name.last} 
-                    text3= {employees.dob.age} 
-                    text4= {employees.location.state} 
-                    />
-                ))}
-            </Wrapper>
+        <Wrapper>
+                <Row>
+                    <Col size= "md-12">
+                         <FilterForm
+                             handleFormSubmit={this.handleFormSubmit}
+                             handleInputChange={this.handleInputChange}
+                         />
+                    </Col>
+                </Row>
+            <Container>
+            <Row>    
+            {this.state.person.filter((employee) => employee.location.state === this.state.location)
+                    .map((employees) => (
+                        <Card
+                        key = {employees.login.uuid}
+                        image= {employees.picture.large} 
+                        text1= {employees.name.first} 
+                        text2= {employees.name.last} 
+                        text3= {employees.dob.age} 
+                        text4= {employees.location.state} 
+                        />
+                    ))}
+            </Row>
+            </Container>
+
+     </Wrapper>
     )}
 }
 }
