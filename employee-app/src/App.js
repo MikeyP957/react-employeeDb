@@ -12,8 +12,9 @@ export default function App() {
     return(
         <Router>
             <div>
+            <Navbar />
                 <Wrapper>
-                <Navbar />
+                
                 <Route exact path="/search" component={Search} />
                 <Route exact path="/filter" component={Filter} />
                 <EmployeeCard />

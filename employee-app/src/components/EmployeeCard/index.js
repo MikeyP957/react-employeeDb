@@ -30,7 +30,7 @@ export default class EmployeeCard extends Component {
        else {
         return (
             <Wrapper>
-                {this.state.person.filter((employee) => employee.location.state === "Ohio")
+                {this.state.person
                 .map((employees) => (
                     <Card
                     key = {employees.login.uuid}

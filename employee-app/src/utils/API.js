@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
     getRandomEmployees: async function() {
-        return  await axios.get('https://randomuser.me/api/?results=30&nat=us')
+        return  await axios.get('https://randomuser.me/api/?results=50&nat=us&seed=potato')
     },
 
     
