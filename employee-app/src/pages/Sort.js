@@ -1,63 +1,50 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react'
+import API from "../utils/API"
+import Card from '../components/Card'
 import Container from '../components/Container'
 import Row from '../components/Row'
-import API from '../utils/API';
 
 
-const Sort = () => {
-    const [employee, setEmployee] = useState([])
-    const [isLoading, setIsLoading]
+ class Sort extends Component {
+    state = {
+        loading: true,
+        person:null
+    }
+   
+   async componentDidMount() {
+    const { data } = await API.getRandomEmployees();
+        //map here  
+        this.setState({person: data.results, loading: false})
+    
+    console.log(data.results);
+   }
+    render() {
+        if(this.state.loading || !this.state.person) {
+            return(
+             <div>loading... </div> 
+            )
+        }
+        else {
+        return (
+            <div>
+                <Container>
+                    <Row>    
+                    {this.state.person
+                    .map((employees) => (
+                        <Card
+                        key = {employees.login.uuid}
+                        image= {employees.picture.large} 
+                        text1= {employees.name.first} 
+                        text2= {employees.name.last} 
+                        text3= {employees.dob.age} 
+                        text4= {employees.location.state} 
+                        />
+                    ))}
+            </Row>
+            </Container>
+            </div>
+        )
+    }
 }
-
-export default Sort;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class Selection extends Component {
-//     state= {
-//         sortType: 'asc',
-//         employeeList: []
-//     }
-//     onSort = sortType => {
-//         this.setState({sortType})
-//     }
-
-//     render() {
-//         const {employeeList, sortType } = this.state;
-//         const sorted = employeeList.sort((a,b) => {
-        
-//             const isReversed = (sortType === 'asc') ? 1 : -1
-//             return isReversed*a.name.localCompare(b.name)})
-        
-//         return(
-//             <div>
-//                 <Container>
-//                     <Row>
-//                         <Col>
-//                         <button onClick= {()=> this.onSort('asc')}> Sort name by asc</button>
-//                         <button onClick= {()=> this.onSort('desc')}> Sort name by desc</button>
-//                         </Col>
-//                     </Row>
-//                     <Row>
-//                         {
-//                          sorted.map((employee, index) => {
-//                              return this.renderEmployee( employee, index);
-//                          })
-//                         }
-//                     </Row>
-//                 </Container>
-//             </div>
-//         )
-//     }
-// }
-
+}
+export default Sort
